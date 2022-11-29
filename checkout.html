@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Han Book - Enjoy The Aspects Of Wisdom</title>
+
+    <!-- Font icon -->
+    <link rel="stylesheet" href="fontawesome-free-6.2.0-web/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="./fontawesome-free-6.2.0-web/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/variable.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/product.css" />
+    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="stylesheet" href="./css/loading.css" />
+    <link rel="stylesheet" href="./css/checkout.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <!-- H E A D E R -->
+    <header class="header">
+      <a href="#" class="logo">
+        <img src="./img/HanBook_final_logo_250.png" alt="" />
+      </a>
+
+      <nav class="navbar">
+        <a href="./index.html">Home</a>
+        <a href="./checkout.html">Checkout</a>
+        <a href="./contact.html">Contact Us</a>
+      </nav>
+
+      <div class="icons">
+        <a href="./crazy.html">
+          <i class="header-item__icon fa-solid fa-heart-pulse"></i>
+        </a>
+        <i
+          class="header-item__icon fa-solid fa-magnifying-glass"
+          id="search-btn"
+        ></i>
+        <i
+          class="header-item__icon fa-solid fa-cart-shopping"
+          id="cart-btn"
+        ></i>
+        <!-- <i class="header-item__icon fa-solid fa-bars" id="menu-btn"></i> -->
+
+        <!-- Login btn -->
+        <button type="button" id="login-btn" class="login-btn">
+          <i class="login-item__icon fa-solid fa-user"></i>
+          Join
+        </button>
+      </div>
+
+      <!-- Searching form -->
+      <div class="search-form">
+        <input type="search" id="search-box" placeholder="Search here..." />
+
+        <!-- label nam duoi -->
+        <label
+          for="search-box"
+          class="header-item__icon fa-solid fa-magnifying-glass"
+        ></label>
+      </div>
+
+      <!-- Cart form -->
+      <!-- <div class="cart-items-form">
+        <div class="cart-item">
+          <span class="x-mark__times fa-regular fa-circle-xmark"></span>
+          <img src="./img/newbook/1.jpg" alt="" />
+          <div class="content">
+            <h3>Tieng Vong Deo Khau Chia</h3>
+            <div class="price">$4.99 x 1</div>
+          </div>
+          <div class="range-input">
+            <span class="minus">-</span>
+            <input class="num" value="1" type="text" />
+            <span class="plus">+</span>
+          </div>
+        </div>
+        <div class="cart-item">
+          <span class="x-mark__times fa-regular fa-circle-xmark"></span>
+          <img src="./img/newbook/2.jpg" alt="" />
+          <div class="content">
+            <h3>Phuong Phap Jakarta</h3>
+            <div class="price">$4.99 x 1</div>
+          </div>
+          <div class="range-input">
+            <span class="minus">-</span>
+            <input class="num" value="1" type="text" />
+            <span class="plus">+</span>
+          </div>
+        </div>
+        <div class="cart-item">
+          <span class="x-mark__times fa-regular fa-circle-xmark"></span>
+          <img src="./img/newbook/3.jpg" alt="" />
+          <div class="content">
+            <h3>Cuon Sach Ve Xe Co</h3>
+            <div class="price">$4.99 x 1</div>
+          </div>
+          <div class="range-input">
+            <span class="minus">-</span>
+            <input class="num" value="1" type="text" />
+            <span class="plus">+</span>
+          </div>
+        </div>
+        <div class="cart-items-list"></div>
+        <div class="total-content">
+          <h3 class="total-content__text">Total:</h3>
+          <h3 class="total-content__price">$0</h3>
+        </div>
+
+        <div class="checkout-form">
+          <input
+            type="text"
+            class="coupon-code"
+            placeholder="Enter Coupon Code"
+          />
+          <a href="./checkout.html" class="btn">Proceed To Checkout</a>
+        </div>
+      </div> -->
+
+      <!-- Login form -->
+      <div class="container-fluid login-form">
+        <div class="user-item js-login-container">
+          <div class="close-btn login-btn-close" id="close-btn">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+          <form action="" id="login-form">
+            <h2>Login</h2>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                placeholder="Username: "
+              />
+              <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                placeholder="Password: "
+              />
+              <span class="form-message"></span>
+            </div>
+            <button type="submit" class="common-btn">Login</button>
+            <h4>Or</h4>
+            <ul>
+              <li>
+                <a href="https://www.facebook.com/hungnguyen130">
+                  <i class="fa-brands fa-facebook"></i>
+                  Login With Facebook
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fa-brands fa-google"></i>
+                  Login With Google
+                </a>
+              </li>
+            </ul>
+            <h5>
+              Didn't Have An Account?
+              <button type="button" class="register-btn" id="register-btn">
+                Register
+              </button>
+            </h5>
+          </form>
+        </div>
+      </div>
+
+      <!-- Register form -->
+      <div class="container-fluid register-form">
+        <div class="user-item js-register-container">
+          <div class="close-btn register-btn-close" id="close-btn">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+          <form action="" method="POST" class="form" id="register-form">
+            <h2>Register</h2>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                placeholder="Username: "
+              />
+              <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="Email: "
+              />
+              <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                placeholder="Password: "
+              />
+              <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control"
+                id="password-confirm"
+                name="password-confirm"
+                placeholder="Confirm Password: "
+              />
+              <span class="form-message"></span>
+            </div>
+            <button type="submit" class="common-btn">Register</button>
+            <h4>Or</h4>
+            <ul>
+              <li>
+                <a href="#">
+                  <i class="fa-brands fa-facebook"></i>
+                  Register With Facebook
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fa-brands fa-google"></i>
+                  Register With Google
+                </a>
+              </li>
+            </ul>
+            <h5>
+              Already Have An Account?
+              <button type="button" class="login2-btn" id="login2-btn">
+                Login
+              </button>
+            </h5>
+          </form>
+        </div>
+      </div>
+    </header>
+
+    <!-- M A I N -->
+    <main>
+      <div class="checkout-area">
+        <div class="page-title-area">
+          <div class="d-table">
+            <div class="d-table-cell">
+              <div class="container">
+                <div class="title-content">
+                  <h2 class="title-text">Checkout</h2>
+                  <ul>
+                    <li>
+                      <a href="./index.html">Home > </a>
+                    </li>
+                    <li>
+                      <span>Checkout</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="section-title">
+            <h2>Billing Details</h2>
+          </div>
+          <form>
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="checkout-billing">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Name*:"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Email*:"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Phone No*:"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Street*:"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <select class="nice-select">
+                      <option>Town*</option>
+                      <option>Some Option</option>
+                      <option>Another Option</option>
+                      <option>Potato</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select class="nice-select">
+                      <option>State*</option>
+                      <option>Some Option</option>
+                      <option>Another Option</option>
+                      <option>Potato</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select class="nice-select">
+                      <option>Country*</option>
+                      <option>Some Option</option>
+                      <option>Another Option</option>
+                      <option>Potato</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <textarea
+                      id="your-notes"
+                      rows="4"
+                      class="form-control"
+                      placeholder="Other Notes (Optional)"
+                    ></textarea>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckDefault"
+                      />
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Ship To A Different Address
+                      </label>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <button class="btn">Place Order</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="checkout-order">
+                  <h3>Your Order:</h3>
+                  <div class="checkout-order-items"></div>
+                  <!-- <ul class="align-items-center">
+                    <li class="img">
+                      <img src="./img/newbook/1.jpg" alt="Checkout" />
+                    </li>
+                    <li class="name">
+                      <h4>Tieng Vong Deo Khau Chia</h4>
+                    </li>
+                    <li class="price">
+                      <span>$4.99 x 1</span>
+                    </li>
+                  </ul> -->
+                  <!-- <ul class="align-items-center">
+                    <li class="img">
+                      <img src="./img/newbook/2.jpg" alt="Checkout" />
+                    </li>
+                    <li class="name">
+                      <h4>Phuong Phap Jakarta</h4>
+                    </li>
+                    <li class="price">
+                      <span>$4.99 x 1</span>
+                    </li>
+                  </ul>
+                  <ul class="align-items-center">
+                    <li class="img">
+                      <img src="./img/newbook/3.jpg" alt="Checkout" />
+                    </li>
+                    <li class="name">
+                      <h4>Cuon Sach Ve Xe Co</h4>
+                    </li>
+                    <li class="price">
+                      <span>$4.99 x 1</span>
+                    </li>
+                  </ul> -->
+                  <div class="inner">
+                    <h3>Shipping: <span>$1.00</span></h3>
+                    <h4>Total: <span class="checkout-price">$0</span></h4>
+                  </div>
+                </div>
+                <div class="checkout-method">
+                  <h3>Payment Method:</h3>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios1"
+                      value="option1"
+                      checked=""
+                    />
+                    <label class="form-check-label" for="exampleRadios1"
+                      >Direct Bank Transfer</label
+                    >
+                    <p>
+                      Make your payment directly into our bank account. Please
+                      use your Order ID as the payment reference. Your order
+                      will not be shipped until the funds have cleared in your
+                      account.
+                    </p>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios2"
+                      value="option2"
+                    />
+                    <label class="form-check-label" for="exampleRadios2"
+                      >Cash On Delivery</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios3"
+                      value="option3"
+                    />
+                    <label class="form-check-label" for="exampleRadios3"
+                      >Paypal</label
+                    >
+                  </div>
+                  <div class="form-check two">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault2"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault2"
+                      >I've read and accept
+                      <a href="###">terms &amp; conditions*</a></label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!-- F O O T E R -->
+    <footer class="footer">
+      <div class="grid">
+        <!-- logo -->
+        <div class="footer-logo">
+          <a href="./index.html" class="logo-item__link">
+            <img src="./img/HanBook_final_logo.png" alt="logo" />
+          </a>
+        </div>
+
+        <div class="grid__row">
+          <!-- grid__column -->
+          <div class="grid__column-3">
+            <h1 class="footer__heading">Introduction</h1>
+            <ul class="footer-list">
+              <li class="footer-item">
+                <a href="" class="footer-item__link">
+                  <i class="footer-item__icon fa-solid fa-location-dot"></i>
+                  2750 An Duong Vuong, Q5, HCM</a
+                >
+              </li>
+
+              <li class="footer-item">
+                <a href="" class="footer-item__link">
+                  <i class="footer-item__icon fa-solid fa-phone"></i>
+                  +707-661-676
+                </a>
+              </li>
+
+              <li class="footer-item">
+                <a href="" class="footer-item__link">
+                  <i class="footer-item__icon fa-solid fa-envelope"></i>
+                  hellothere@hanbook.com
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="grid__column-3">
+            <h1 class="footer__heading">Customer Services</h1>
+            <ul class="footer-list">
+              <li class="footer-item">
+                <a href="" class="footer-item__link">Return Policy</a>
+              </li>
+              <li class="footer-item">
+                <a href="" class="footer-item__link">FAQ</a>
+              </li>
+              <li class="footer-item">
+                <a href="" class="footer-item__link">Single Product </a>
+              </li>
+              <li class="footer-item">
+                <a href="" class="footer-item__link">Privacy Policy </a>
+              </li>
+              <li class="footer-item">
+                <a href="" class="footer-item__link">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="grid__column-3">
+            <h1 class="footer__heading">Important Links</h1>
+            <ul class="footer-list">
+              <li class="footer-item">
+                <a href="" class="footer-item__link">About Us</a>
+              </li>
+              <li class="footer-item">
+                <a href="" class="footer-item__link">Blog</a>
+              </li>
+              <li class="footer-item">
+                <a href="" class="footer-item__link">Wishlist</a>
+              </li>
+              <li class="footer-item">
+                <a href="" class="footer-item__link">My Account</a>
+              </li>
+              <li class="footer-item">
+                <a href="" class="footer-item__link">Shop</a>
+              </li>
+            </ul>
+          </div>
+          <div class="grid__column-3">
+            <h1 class="footer__heading">Follow Us</h1>
+            <ul class="footer-list">
+              <li class="footer-item">
+                <a href="" class="footer-item__link">
+                  <i class="footer-item__icon fa-brands fa-square-facebook"></i>
+                  Facebook</a
+                >
+              </li>
+              <li class="footer-item">
+                <a href="" class="footer-item__link">
+                  <i class="footer-item__icon fa-brands fa-instagram"></i>
+                  Instagram</a
+                >
+              </li>
+              <li class="footer-item">
+                <a href="" class="footer-item__link">
+                  <i class="footer-item__icon fa-brands fa-youtube"></i>
+                  YouTube</a
+                >
+              </li>
+              <li class="footer-item">
+                <a href="" class="footer-item__link">
+                  <i class="footer-item__icon fa-brands fa-skype"></i>
+                  Skype</a
+                >
+              </li>
+              <li class="footer-item">
+                <a href="" class="footer-item__link">
+                  <i class="footer-item__icon fa-brands fa-linkedin"></i>
+                  Linkedin</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="text">
+          <p class="text-copy">
+            Copyright &copy;2022 Design & Developed by
+            <a href="./index.html" class="text-copy__link"> HanBook.</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+
+  <!-- JS -->
+  <!-- Validator for form submission -->
+  <script src="./script/validator.js" type="text/javascript"></script>
+  <script>
+    // Dinh nghia cac ham mong muon
+    Validator({
+      form: "#register-form",
+      formGroupSelector: ".form-group",
+      errorSelector: ".form-message",
+      rules: [
+        Validator.isRequired("#username", "Please enter your username!"),
+
+        Validator.isRequired("#email", "Please enter your email address!"),
+        Validator.isEmail("#email"),
+
+        Validator.isRequired("#password", "Please enter your password!"),
+        Validator.minLength("#password", 6),
+
+        Validator.isRequired(
+          "#password-confirm",
+          "Please enter your password confirmation!"
+        ),
+        Validator.isConfirm(
+          "#password-confirm",
+          function () {
+            return document.querySelector("#register-form #password").value;
+          },
+          "Password confirmation is wrong!"
+        ),
+      ],
+
+      onSubmit: function (data) {
+        // Call API (trong tuong lai)
+        console.log(data);
+      },
+    });
+
+    Validator({
+      form: "#login-form",
+      formGroupSelector: ".form-group",
+      errorSelector: ".form-message",
+      rules: [
+        Validator.isRequired("#username", "Please enter your username!"),
+
+        Validator.isRequired("#password", "Please enter your password!"),
+        Validator.minLength("#password", 6),
+      ],
+
+      onSubmit: function (data) {
+        // Call API (trong tuong lai)
+        console.log(data);
+      },
+    });
+  </script>
+
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"
+  ></script>
+
+  <script src="./script/productlist.js" type="text/javascript"></script>
+  <script src="./script/index.js" type="text/javascript"></script>
+
+  <!-- Shining and Close  Btn -->
+  <script type="text/javascript">
+    const closeLoginBtn = document.querySelector(".login-btn-close");
+    const closeRegisterBtn = document.querySelector(".register-btn-close");
+
+    const loginBtn = document.querySelector("#login-btn");
+    const registerBtn = document.querySelector("#register-btn");
+    const login2Btn = document.querySelector("#login2-btn");
+
+    const registerFormModal = document.querySelector(".register-form");
+    const loginFormModal = document.querySelector(".login-form");
+    //const loginFormContainer = document.querySelector(".js-login-container");
+
+    const detailFormModal = document.querySelector(
+      ".product-cards .product-detail-area"
+    );
+
+    function showForms() {
+      loginFormModal.classList.add("open");
+    }
+
+    function showRegisterForms() {
+      registerFormModal.classList.add("openRegister");
+    }
+
+    function hideForms() {
+      loginFormModal.classList.remove("open");
+      registerFormModal.classList.remove("openRegister");
+    }
+
+    function hideFormRegister() {
+      registerFormModal.classList.remove("openRegister");
+    }
+
+    loginBtn.addEventListener("click", showForms);
+    registerBtn.addEventListener("click", showRegisterForms);
+    closeLoginBtn.addEventListener("click", hideForms);
+
+    login2Btn.addEventListener("click", hideFormRegister);
+
+    closeRegisterBtn.addEventListener("click", hideForms);
+
+    //loginFormModal.addEventListener("click", function (event) {
+    //  event.stopPropagation();
+    // });
+  </script>
+
+  <!-- script for Banner -->
+  <script type="text/javascript">
+    var counter = 1;
+    setInterval(function () {
+      document.getElementById("radio" + counter).checked = true;
+      counter++;
+      if (counter > 3) {
+        counter = 1;
+      }
+    }, 4000);
+  </script>
+
+  <!-- Swiper JS -->
+  <script src="./script/swiper-bundle.min.js"></script>
+
+  <script type="text/javascript">
+    // Swiper JS
+
+    var swiper = new Swiper(".slide-content", {
+      slidesPerView: 3,
+      spaceBetween: 25,
+      loop: true,
+      centerSlide: true,
+      fade: true,
+      grabCursor: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        dynamicBullets: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+        },
+        520: {
+          slidesPerView: 2,
+        },
+        950: {
+          slidesPerView: 3,
+        },
+      },
+    });
+  </script>
+</html>

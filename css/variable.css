@@ -1,0 +1,30 @@
+:root{
+    /* Main color */
+    --primary: #434e6e;
+    --background-item: #ffffff;
+    --background: #F5F5F5;
+    --icon-color: #545454;
+    --text-color: var(--dark);
+
+    --border: 1px solid rgba(56, 50, 50, 0.3);
+
+    /*  */
+    --gutter-x: 1.5rem;
+    --gutter-y: 0;
+
+    /*  */
+    --success: #198754;
+    --info: #0dcaf0;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #212529;
+
+    /* Font */
+    --font-sans-serif: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --font-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+
+

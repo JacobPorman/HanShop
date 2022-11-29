@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body onload="renderStudent()">
+    <div class="form">
+      <div class="form-group">
+        <label for="name">name</label>
+        <input type="text" id="name" class="form-input" />
+        <div class="error-message"></div>
+      </div>
+      <div class="form-group">
+        <label for="genre">the loai</label>
+        <input type="text" id="genre" />
+        <div class="error-message"></div>
+      </div>
+      <div class="form-group">
+        <label for="cost">gia</label>
+        <input type="number" id="cost" />
+        <div class="error-message"></div>
+      </div>
+      <div class="form-group">
+        <label for="quantity">so luong</label>
+        <input type="number" id="quantity" />
+        <div class="error-message"></div>
+      </div>
+      <div class="form-group">
+        <label for="content">noi dung</label>
+        <input type="text" id="content" />
+        <div class="error-message"></div>
+      </div>
+      <div class="form-group">
+        <input type="hidden" id="index" class="form-input" />
+      </div>
+      <div>
+        <label for="search">Search</label>
+        <input
+          type="text"
+          class="form-input"
+          placeholder="search"
+          id="searchItem"
+        />
+        <button onclick="search()">Search</button>
+        <button onclick="cannel()" style="display: none" id="cannel">
+          cannel
+        </button>
+      </div>
+      <button onclick="addNew()" id="save">Add</button>
+      <button onclick="changeStudent()" style="display: none" id="update">
+        update
+      </button>
+    </div>
+    <table border="1" cellpadding="10" cellspacing="0" id="tableContent">
+      <tr>
+        <th>BookId</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Cost</th>
+        <th>Quantity</th>
+        <th>Size</th>
+        <th>Action</th>
+      </tr>
+    </table>
+    <script>
+      /*reset input*/
+      function resetInput() {
+        document.getElementById("name").value = "";
+        document.getElementById("genre").value = "";
+        document.getElementById("cost").value = "";
+        document.getElementById("quantity").value = "";
+        document.getElementById("content").value = "";
+      }
+      /*test input*/
+      function validateInput() {
+        let formElement = document.querySelector(".form");
+        let inputElement = formElement.querySelectorAll(".form-input");
+        for (let i = 0; i < inputElement.length; i++) {
+          if (inputElement[i].value === "") {
+            inputElement[i].parentElement.querySelector(
+              ".error-message"
+            ).innerText = `please ${inputElement[i].id}`;
+          } else {
+            inputElement[i].parentElement.querySelector(
+              ".error-message"
+            ).innerText = "";
+          }
+        }
+      }
+      /*add data vs save data on localStorge*/
+      function addNew() {
+        //validateInput()
+        let formElement = document.querySelector(".form");
+        let errorElement = formElement.querySelectorAll(".error-message");
+        let arrErrorElement = [];
+        for (let i = 0; i < errorElement.length; i++) {
+          arrErrorElement.push(errorElement[i].innerText);
+        }
+        let checkErrorElement = arrErrorElement.every((value) => value === "");
+        if (checkErrorElement) {
+          let name = document.getElementById("name").value;
+          let genre = document.getElementById("genre").value;
+          let cost = document.getElementById("cost").value;
+          let quantity = document.getElementById("quantity").value;
+          let content = document.getElementById("content").value;
+          let listStudent = localStorage.getItem("list-student")
+            ? JSON.parse(localStorage.getItem("list-student"))
+            : [];
+          listStudent.push({
+            name: name,
+            genre: genre,
+            cost: cost,
+            quantity: quantity,
+            content: content,
+          });
+          localStorage.setItem("list-student", JSON.stringify(listStudent));
+          renderStudent();
+          resetInput();
+        }
+      }
+
+      /*xuat data*/
+      function renderStudent() {
+        let listStudent = localStorage.getItem("list-student")
+          ? JSON.parse(localStorage.getItem("list-student"))
+          : [];
+        let student = `
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>the loai</th>
+            <th>gia</th>
+            <th>so luong</th>
+            <th>noi dung</th>
+            <th>Action</th>
+        </tr>`;
+        listStudent.map((value, index) => {
+          student += ` <tr>
+            <td>${index + 1}</td>
+            <td>${value.name}</td>
+            <td>${value.genre}</td>
+            <td>${value.cost}</td>
+            <td>${value.quantity}</td>
+            <td>${value.content}</td>
+            <td>
+            <button onclick="editStudent(${index})">Edit</button>    
+            <button onclick="deleteStudent(${index})">Delete</button>
+            </td>
+                    </tr>`;
+        });
+        document.getElementById("tableContent").innerHTML = student;
+      }
+      /*EDIT*/
+      function editStudent(index) {
+        let listStudent = localStorage.getItem("list-student")
+          ? JSON.parse(localStorage.getItem("list-student"))
+          : [];
+        document.getElementById("name").value = listStudent[index].name;
+        document.getElementById("genre").value = listStudent[index].genre;
+        document.getElementById("cost").value = listStudent[index].cost;
+        document.getElementById("quantity").value = listStudent[index].quantity;
+        document.getElementById("content").value = listStudent[index].content;
+        document.getElementById("index").value = index;
+
+        document.getElementById("save").style.display = "none"; /*an khi nhan*/
+        document.getElementById("update").style.display =
+          "inline-block"; /*hien thi update*/
+      }
+      function changeStudent() {
+        let listStudent = localStorage.getItem("list-student")
+          ? JSON.parse(localStorage.getItem("list-student"))
+          : [];
+        let index = document.getElementById("index").value;
+        listStudent[index] = {
+          name: document.getElementById("name").value,
+          genre: document.getElementById("genre").value,
+          cost: document.getElementById("cost").value,
+          quantity: document.getElementById("quantity").value,
+          content: document.getElementById("content").value,
+        };
+        localStorage.setItem("list-student", JSON.stringify(listStudent));
+
+        document.getElementById("save").style.display = "inline-block"; //*hien thi lai khi update xong*/
+        document.getElementById("update").style.display =
+          "none"; /*an khi nhan*/
+        renderStudent();
+        resetInput();
+      }
+      /*delete*/
+      function deleteStudent(index) {
+        let listStudent = localStorage.getItem("list-student")
+          ? JSON.parse(localStorage.getItem("list-student"))
+          : [];
+        if (confirm("are you sure")) {
+          listStudent.splice(index, 1);
+        }
+        localStorage.setItem("list-student", JSON.stringify(listStudent));
+        renderStudent();
+      }
+      /*search*/
+      function search() {
+        let listStudent = localStorage.getItem("list-student")
+          ? JSON.parse(localStorage.getItem("list-student"))
+          : [];
+        var valueSearchInput = document.getElementById("searchItem").value;
+        let userSearch = listStudent.filter((value) => {
+          return value.name
+            .toUpperCase()
+            .includes(valueSearchInput.toUpperCase());
+        });
+        render(userSearch);
+        document.getElementById("cannel").style.display =
+          "inline-block"; /*hien thi cannel*/
+      }
+      function cannel() {
+        document.getElementById("cannel").style.display =
+          "inline-block"; /*an cannel*/
+        renderStudent();
+      }
+      function render(array) {
+        let listStudent = localStorage.getItem("list-student")
+          ? JSON.parse(localStorage.getItem("list-student"))
+          : [];
+        let student = `
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>theloai</th>
+            <th>gia</th>
+            <th>so luong</th>
+            <th>noi dung</th>
+        </tr>`;
+        array.map((value, index) => {
+          student += ` <tr>
+            <td>${index + 1}</td>
+            <td>${value.name}</td>
+            <td>${value.genre}</td>
+            <td>${value.cost}</td>
+            <td>${value.quantity}</td>
+            <td>${value.content}</td>
+            <td>
+            <button onclick="editStudent(${index})">Edit</button>    
+            <button onclick="deleteStudent(${index})">Delete</button>
+            </td>
+                    </tr>`;
+        });
+        document.getElementById("tableContent").innerHTML = student;
+      }
+    </script>
+  </body>
+</html>
